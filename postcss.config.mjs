@@ -1,3 +1,6 @@
+// Import autoprefixer module.
+import autoprefixer from "autoprefixer";
+
 /**
  * PostCSS Configuration
  *
@@ -5,7 +8,7 @@
  * It includes the Tailwind CSS plugin to enable Tailwind's utility-first
  * CSS framework and Autoprefixer to automatically add vendor prefixes to CSS rules.
  *
- * Next.js expects plugins to be defined as an object within the `plugins` property.
+ * For Tailwind CSS v4, the correct PostCSS plugin is `@tailwindcss/postcss`.
  */
 const config = {
   plugins: {
