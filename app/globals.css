@@ -1,7 +1,5 @@
 /* Import Tailwind CSS base styles, components, and utilities. */
 @import "tailwindcss";
-/* Import tw-animate-css for additional animation utilities. */
-@import "tw-animate-css";
 
 /* Define a custom Tailwind variant for dark mode, targeting elements within a '.dark' parent. */
 @custom-variant dark (&:is(.dark *));

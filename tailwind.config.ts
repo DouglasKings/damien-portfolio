@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-import tailwindcssAnimate from "tailwindcss-animate"
 
 /**
  * Tailwind CSS Configuration
@@ -111,7 +110,7 @@ const config: Config = {
     },
   },
   // Add Tailwind plugins here.
-  plugins: [tailwindcssAnimate], // Used the imported variable
+  plugins: [], // Removed tailwindcssAnimate
 }
 
 export default config
