@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react" // Import useState and useEffect for client-side logic
 // Import necessary UI components from shadcn/ui
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -46,18 +47,17 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* ========================================
-          NAVIGATION SECTION
-          A sticky navigation bar at the top of the page for easy access
-          to different sections. It uses a backdrop-blur effect for a modern look.
-      ======================================== */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b shadow-sm">
+        NAVIGATION SECTION
+        A sticky navigation bar at the top of the page for easy access
+        to different sections. It uses a backdrop-blur effect for a modern look.
+    ======================================== */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Brand/Logo: Displays Damien's name as the site's brand */}
             <div className="text-2xl font-bold text-slate-800 tracking-tight">Damien Papers</div>
-
             {/* Desktop Navigation Links: Hidden on small screens, visible on medium and larger.
-                Links are made bold as requested. */}
+              Links are made bold as requested. */}
             <div className="hidden md:flex space-x-8">
               {[
                 { href: "#home", label: "Home" },
@@ -78,18 +78,17 @@ export default function Portfolio() {
           </div>
         </div>
       </nav>
-
       {/* ========================================
-          HERO SECTION
-          The main introductory section of the portfolio, featuring Damien's
-          profile image, name, a brief summary, and key achievement badges.
-      ======================================== */}
+        HERO SECTION
+        The main introductory section of the portfolio, featuring Damien's
+        profile image, name, a brief summary, and key achievement badges.
+    ======================================== */}
       <section id="home" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             {/* Profile Image: Uses the provided '1.jpg' image from public/images.
-                The 'object-cover' class ensures the image fills its circular container
-                while maintaining its aspect ratio and cropping if necessary. */}
+              The 'object-cover' class ensures the image fills its circular container
+              while maintaining its aspect ratio and cropping if necessary. */}
             <div className="mb-8">
               <Image
                 src="/images/5.jpg" // Updated image source to public/images/5.jpg
@@ -100,10 +99,8 @@ export default function Portfolio() {
                 priority // Prioritize loading for LCP
               />
             </div>
-
             {/* Main Heading: Damien's full name */}
             <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 tracking-tight">Damien Papers</h1>
-
             {/* Professional Summary: A concise description of Damien's background and aspirations */}
             <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Motivated Year 11 student pursuing Law studies after graduating high school in Uganda, demonstrating
@@ -111,7 +108,6 @@ export default function Portfolio() {
               problem-solving, with a solid foundation in debating, sports, and ICT. Passionate about gaming, travel,
               and legal studies.
             </p>
-
             {/* Achievement Badges: Displays key highlights using shadcn/ui Badge component */}
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               {[
@@ -127,18 +123,16 @@ export default function Portfolio() {
                 </Badge>
               ))}
             </div>
-
             {/* Removed "Download CV" button as per "view only" requirement */}
           </div>
         </div>
       </section>
-
       {/* ========================================
-          WORK PLACEMENT SECTION
-          Detailed showcase of Damien's professional experience at MBS Advocates,
-          including placement details, key achievements, a photo gallery,
-          and embedded official documents for viewing.
-      ======================================== */}
+        WORK PLACEMENT SECTION
+        Detailed showcase of Damien's professional experience at MBS Advocates,
+        including placement details, key achievements, a photo gallery,
+        and embedded official documents for viewing.
+    ======================================== */}
       <section id="work-placement" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -146,7 +140,6 @@ export default function Portfolio() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Work Placement Experience</h2>
             <p className="text-xl text-slate-600">Professional experience at MBS Advocates, Kampala</p>
           </div>
-
           {/* Placement Overview Grid: Two-column layout for details and achievements */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Placement Details Card */}
@@ -174,7 +167,6 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Key Achievements Card */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -198,11 +190,10 @@ export default function Portfolio() {
               </CardContent>
             </Card>
           </div>
-
           {/* Photo Gallery: Displays images from Damien's work placement.
-              Uses provided image files from public/images.
-              The 'object-cover w-full h-full' classes ensure images fill their
-              'aspect-square' containers while maintaining aspect ratio. */}
+            Uses provided image files from public/images.
+            The 'object-cover w-full h-full' classes ensure images fill their
+            'aspect-square' containers while maintaining aspect ratio. */}
           <Card className="border-0 shadow-lg mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
@@ -231,7 +222,7 @@ export default function Portfolio() {
                   },
                   {
                     title: "Office Environment",
-                    alt: "Damien's Office Environment",
+                    alt: "Damien&apos;s Office Environment", // Fixed unescaped apostrophe
                     src: "/images/4.jpg", // Corrected image source to public/images/4.jpg
                   },
                 ].map((item, index) => (
@@ -251,38 +242,34 @@ export default function Portfolio() {
               </div>
             </CardContent>
           </Card>
-
           {/* Official Recommendation Letter: Embeds the PDF for viewing.
-              Uses the local path from public/documents/1.pdf.
-              The EmbeddedPdfCard component is used here to encapsulate the PDF viewer logic. */}
+            Uses the local path from public/documents/1.pdf.
+            The EmbeddedPdfCard component is used here to encapsulate the PDF viewer logic. */}
           <EmbeddedPdfCard
             title="Official Recommendation Letter"
             description="Click to view the full letter from MBS Advocates"
             src={officialLetterPdfUrl}
           />
-
           {/* Work Placement Report: Embeds the PDF for viewing.
-              Uses the local path from public/documents/2.pdf.
-              The EmbeddedPdfCard component is used here to encapsulate the PDF viewer logic. */}
+            Uses the local path from public/documents/2.pdf.
+            The EmbeddedPdfCard component is used here to encapsulate the PDF viewer logic. */}
           <EmbeddedPdfCard
             title="Work Placement Report"
-            description="Click to view the detailed report of Damien's experience"
+            description="Click to view the detailed report of Damien&apos;s experience" // Fixed unescaped apostrophe
             src={workPlacementReportPdfUrl}
           />
         </div>
       </section>
-
       {/* ========================================
-          PERSONAL INTERESTS SECTION
-          Showcase of Damien's personal interests, including gaming and travel.
-      ======================================== */}
+        PERSONAL INTERESTS SECTION
+        Showcase of Damien's personal interests, including gaming and travel.
+    ======================================== */}
       <section id="interests" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Personal Interests</h2>
             <p className="text-xl text-slate-600">Beyond academics - gaming, travel, and exploration</p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8">
             {/* Gaming Excellence Card */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
@@ -323,7 +310,6 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Travel & Culture Card */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -361,20 +347,18 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
       {/* ========================================
-          ACHIEVEMENTS SECTION
-          Showcases Damien's academic and professional accomplishments,
-          including education details, hard skills with progress bars,
-          and awards/recognition.
-      ======================================== */}
+        ACHIEVEMENTS SECTION
+        Showcases Damien's academic and professional accomplishments,
+        including education details, hard skills with progress bars,
+        and awards/recognition.
+    ======================================== */}
       <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Achievements</h2>
             <p className="text-xl text-slate-600">Academic achievements and professional competencies</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Education Card */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
@@ -405,7 +389,6 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Hard Skills Card with progress bars */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -425,9 +408,12 @@ export default function Portfolio() {
                     <div key={index} className="flex justify-between items-center">
                       <span className="text-slate-700 text-sm">{item.skill}</span>
                       <div className="w-20 bg-slate-200 rounded-full h-2">
+                        {/* This inline style is a known warning from Edge Tools, but is kept for simplicity
+                            in this context for dynamic width. For complex scenarios, consider a dedicated
+                            ProgressBar component or CSS variables. */}
                         <div
                           className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                          style={{ width: item.level }} // Inline style for dynamic width (ESLint warning acknowledged)
+                          style={{ width: item.level }}
                         ></div>
                       </div>
                     </div>
@@ -435,7 +421,6 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-
             {/* Awards & Recognition Card */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -463,16 +448,14 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
       {/* ========================================
-          CONTACT SECTION
-          Provides contact information and methods for reaching Damien.
-      ======================================== */}
+        CONTACT SECTION
+        Provides contact information and methods for reaching Damien.
+    ======================================== */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Get In Touch</h2>
           <p className="text-xl text-slate-600 mb-12">Ready to connect and explore opportunities</p>
-
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -515,12 +498,11 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
       {/* ========================================
-          FOOTER SECTION
-          Displays copyright information and a credit to the developer.
-          Includes a placeholder for the developer's portfolio link.
-      ======================================== */}
+        FOOTER SECTION
+        Displays copyright information and a credit to the developer.
+        Includes a placeholder for the developer's portfolio link.
+    ======================================== */}
       <footer className="bg-slate-800 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -533,7 +515,6 @@ export default function Portfolio() {
                 All rights reserved. This portfolio showcases academic and professional achievements.
               </p>
             </div>
-
             {/* Developer Credit: Placeholder for your portfolio */}
             <div className="text-center md:text-right">
               <div className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
@@ -561,20 +542,27 @@ export default function Portfolio() {
 /**
  * Helper component for embedding PDF documents within a Card.
  * This component abstracts the common structure for displaying PDF iframes.
+ * It handles fallback content for browsers that do not support iframes or fail to load the PDF,
+ * preventing hydration errors by conditionally rendering content on the client side.
  *
  * @param title - The title of the PDF document.
  * @param description - A brief description of the PDF content.
  * @param src - The URL or path to the PDF file.
  */
-function EmbeddedPdfCard({
-  title,
-  description,
-  src,
-}: {
-  title: string
-  description: string
-  src: string
-}) {
+function EmbeddedPdfCard({ title, description, src }: { title: string; description: string; src: string }) {
+  // State to control whether to show the fallback content (if iframe is not supported or fails to load)
+  const [showFallback, setShowFallback] = useState(false)
+
+  // Use useEffect to check for iframe support on the client side after initial render.
+  // This prevents hydration mismatches by ensuring fallback is only rendered client-side.
+  useEffect(() => {
+    // Check if the browser supports iframes. If not, show fallback.
+    // This check is client-side only, so it won't affect server rendering.
+    if (typeof window !== "undefined" && !window.HTMLIFrameElement) {
+      setShowFallback(true)
+    }
+  }, [])
+
   return (
     <Card className="border-0 shadow-lg bg-white mb-8">
       <CardHeader>
@@ -585,20 +573,29 @@ function EmbeddedPdfCard({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="h-[600px] w-full">
-        <iframe
-          src={src}
-          title={title}
-          className="w-full h-full border-none rounded-lg shadow-inner"
-          aria-label={`${title} PDF Viewer`}
-        >
-          <p className="text-slate-600 text-center p-4">
-            Your browser doesn&apos;t support iframes. You can view the{" "}
-            <Link href={src} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-              {title} here
-            </Link>
-            .
-          </p>
-        </iframe>
+        {showFallback ? (
+          // Render fallback content if iframe is not supported or failed to load
+          <div className="flex items-center justify-center h-full">
+            <p className="text-slate-600 text-center p-4">
+              Your browser doesn&apos;t support iframes. You can view the{" "}
+              <Link href={src} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                {title} here
+              </Link>
+              .
+            </p>
+          </div>
+        ) : (
+          // Render the iframe. The onError event will trigger fallback if the PDF fails to load.
+          // The iframe is self-closing in JSX to prevent React from trying to hydrate children
+          // that the browser might discard.
+          <iframe
+            src={src}
+            title={title}
+            className="w-full h-full border-none rounded-lg shadow-inner"
+            aria-label={`${title} PDF Viewer`}
+            onError={() => setShowFallback(true)} // Show fallback if iframe content fails to load
+          />
+        )}
       </CardContent>
     </Card>
   )
